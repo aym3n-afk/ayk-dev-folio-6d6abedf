@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -76,11 +78,10 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Get In Touch
+            {t('contact.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Interested in collaboration, new opportunities, or discussing engineering challenges? 
-            I'd love to hear from you.
+            {t('contact.description')}
           </p>
         </div>
 

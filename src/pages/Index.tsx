@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Download, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -13,6 +14,7 @@ import Contact from '@/components/Contact';
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -67,7 +69,7 @@ const Index = () => {
             
             <div className="text-center md:text-right">
               <p className="text-sm text-muted-foreground">
-                © 2024 Aymen Kouki. Built with React & TypeScript.
+                © 2024 Aymen Kouki. {t('footer.builtWith')}
               </p>
             </div>
           </div>

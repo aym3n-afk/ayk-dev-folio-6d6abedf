@@ -1,6 +1,8 @@
 import { GraduationCap, Award, Calendar, MapPin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Education = () => {
+  const { t } = useLanguage();
   const education = [
     {
       degree: 'M.Eng. Elektrotechnik',
@@ -59,11 +61,10 @@ const Education = () => {
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Education
+            {t('education.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Academic foundation in electrical engineering with specialization in 
-            embedded systems, automation, and artificial intelligence
+            {t('education.description')}
           </p>
         </div>
 

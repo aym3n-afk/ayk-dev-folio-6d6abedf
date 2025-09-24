@@ -1,11 +1,19 @@
 import { ArrowDown, Download, ExternalLink, MapPin, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 import aymenProfile from '@/assets/aymen-profile.jpg';
 
 const Hero = () => {
-  const highlights = [
+  const { t, language } = useLanguage();
+  
+  const highlights = language === 'de' ? [
     'Embedded Systems & Drive Tech',
     'KI-gestützte Testautomatisierung (LLM)',
+    'STM32, Motor-CAD, MATLAB/Simulink',
+    'Multilingual (DE/EN/FR/AR)'
+  ] : [
+    'Embedded Systems & Drive Tech',
+    'AI-powered Test Automation (LLM)',
     'STM32, Motor-CAD, MATLAB/Simulink',
     'Multilingual (DE/EN/FR/AR)'
   ];
@@ -34,11 +42,11 @@ const Hero = () => {
               {/* Floating Stats */}
               <div className="absolute -top-6 -left-6 stat-card">
                 <div className="stat-number">5+</div>
-                <div className="stat-label">Years Experience</div>
+                <div className="stat-label">{t('hero.yearsExperience')}</div>
               </div>
               <div className="absolute -bottom-6 -right-6 stat-card">
                 <div className="stat-number">20+</div>
-                <div className="stat-label">Projects Completed</div>
+                <div className="stat-label">{t('hero.projectsCompleted')}</div>
               </div>
             </div>
           </div>
@@ -51,31 +59,29 @@ const Hero = () => {
                   Aymen Kouki
                 </h1>
                 <p className="text-xl lg:text-2xl text-primary font-semibold mb-4">
-                  Entwicklungsingenieur Hardware & Software
+                  {t('hero.title')}
                 </p>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-                  Technisch versierter Ingenieur mit Fokus auf Embedded-Systeme, Antriebstechnik und 
-                  industrielle Automatisierung; erfahren in modellbasierter Entwicklung, 
-                  hardwarenaher Programmierung und Systemintegration von Prototyp bis zur Serienreife.
+                  {t('hero.description')}
                 </p>
               </div>
 
               {/* Current Role */}
               <div className="flex items-center justify-center lg:justify-start space-x-2 text-muted-foreground">
                 <Briefcase className="h-5 w-5" />
-                <span>Project Engineer bei EMZ Elektromaschinenzentrale GmbH</span>
+                <span>{t('hero.currentRole')}</span>
               </div>
 
               <div className="flex items-center justify-center lg:justify-start space-x-2 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
-                <span>Aachen, Germany</span>
+                <span>{t('hero.location')}</span>
               </div>
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
                 <Button size="lg" className="btn-hero flex items-center space-x-2">
                   <Download className="h-5 w-5" />
-                  <span>Download CV</span>
+                  <span>{t('hero.download')}</span>
                 </Button>
                 <Button 
                   variant="outline" 
@@ -83,7 +89,7 @@ const Hero = () => {
                   className="btn-outline flex items-center space-x-2"
                   onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  <span>Contact</span>
+                  <span>{t('hero.contact')}</span>
                 </Button>
               </div>
 

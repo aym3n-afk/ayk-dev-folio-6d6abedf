@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Download, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitch from '@/components/LanguageSwitch';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,12 +18,13 @@ const Header = () => {
   }, []);
 
   const navigation = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.experience'), href: '#experience' },
+    { name: t('nav.projects'), href: '#projects' },
+    { name: t('nav.skills'), href: '#skills' },
+    { name: t('nav.education'), href: '#education' },
+    { name: t('nav.contact'), href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -66,6 +70,7 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitch />
             <Button
               variant="outline"
               size="sm"
@@ -73,14 +78,14 @@ const Header = () => {
               onClick={() => window.open('#', '_blank')}
             >
               <Download className="h-4 w-4" />
-              <span>CV</span>
+              <span>{t('nav.cv')}</span>
             </Button>
             <Button
               size="sm"
               className="btn-hero"
               onClick={() => scrollToSection('#contact')}
             >
-              Contact
+              {t('nav.contact')}
             </Button>
           </div>
 
@@ -110,6 +115,7 @@ const Header = () => {
                 </button>
               ))}
               <div className="pt-4 border-t border-border flex flex-col space-y-2">
+                <LanguageSwitch />
                 <Button
                   variant="outline"
                   size="sm"
@@ -117,14 +123,14 @@ const Header = () => {
                   onClick={() => window.open('#', '_blank')}
                 >
                   <Download className="h-4 w-4" />
-                  <span>Download CV</span>
+                  <span>{t('nav.downloadCv')}</span>
                 </Button>
                 <Button
                   size="sm"
                   className="btn-hero"
                   onClick={() => scrollToSection('#contact')}
                 >
-                  Contact
+                  {t('nav.contact')}
                 </Button>
               </div>
             </div>

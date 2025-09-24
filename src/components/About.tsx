@@ -1,6 +1,9 @@
 import { Award, Globe, Users, Zap } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t, language } = useLanguage();
+  
   const languages = [
     { name: 'Deutsch', level: 'C1' },
     { name: 'Englisch', level: 'C1' },
@@ -14,7 +17,12 @@ const About = () => {
     'Learning Altium'
   ];
 
-  const interests = [
+  const interests = language === 'de' ? [
+    'Robotik & Autonome Systeme',
+    'Teamführung',
+    'Fußball',
+    'Tischtennis'
+  ] : [
     'Robotics & Autonomous Systems',
     'Team Leadership',
     'Football',
@@ -26,13 +34,10 @@ const About = () => {
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            About Me
+            {t('about.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Technisch versierter Ingenieur mit Fokus auf Embedded-Systeme, Antriebstechnik und 
-            industrielle Automatisierung. Erfahrung in Konzeption, Auslegung, Inbetriebnahme, 
-            modellbasierter Entwicklung, Softwareintegration und hardwarenaher Programmierung. 
-            Praxisorientiert, analytisch, teamerprobt — von der Idee über Prototyp bis zur Serienreife.
+            {t('about.description')}
           </p>
         </div>
 
@@ -42,25 +47,25 @@ const About = () => {
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center space-x-2">
                 <Zap className="h-5 w-5 text-primary" />
-                <span>Areas of Focus</span>
+                <span>{t('about.areasOfFocus')}</span>
               </h3>
               <div className="space-y-4">
                 <div className="card-interactive">
-                  <h4 className="font-semibold text-foreground mb-2">Embedded Systems</h4>
+                  <h4 className="font-semibold text-foreground mb-2">{t('about.embeddedSystems')}</h4>
                   <p className="text-muted-foreground text-sm">
-                    STM32 microcontrollers, real-time data acquisition, hardware-near programming
+                    {t('about.embeddedDesc')}
                   </p>
                 </div>
                 <div className="card-interactive">
-                  <h4 className="font-semibold text-foreground mb-2">Drive Technology</h4>
+                  <h4 className="font-semibold text-foreground mb-2">{t('about.driveTechnology')}</h4>
                   <p className="text-muted-foreground text-sm">
-                    High-voltage motors, industrial automation, engineering & project execution
+                    {t('about.driveDesc')}
                   </p>
                 </div>
                 <div className="card-interactive">
-                  <h4 className="font-semibold text-foreground mb-2">LLM-based Test Automation</h4>
+                  <h4 className="font-semibold text-foreground mb-2">{t('about.llmTesting')}</h4>
                   <p className="text-muted-foreground text-sm">
-                    AI-powered test case generation, custom neural network optimization
+                    {t('about.llmDesc')}
                   </p>
                 </div>
               </div>
@@ -70,7 +75,7 @@ const About = () => {
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center space-x-2">
                 <Globe className="h-5 w-5 text-primary" />
-                <span>Languages</span>
+                <span>{t('about.languages')}</span>
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 {languages.map((lang, index) => (
@@ -88,7 +93,7 @@ const About = () => {
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center space-x-2">
                 <Award className="h-5 w-5 text-primary" />
-                <span>Certifications</span>
+                <span>{t('about.certifications')}</span>
               </h3>
               <div className="space-y-3">
                 {certifications.map((cert, index) => (
@@ -103,13 +108,13 @@ const About = () => {
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center space-x-2">
                 <Users className="h-5 w-5 text-primary" />
-                <span>Additional Skills & Interests</span>
+                <span>{t('about.additionalSkills')}</span>
               </h3>
               <div className="space-y-3">
                 <div className="p-4 bg-secondary rounded-lg">
-                  <h4 className="font-semibold text-foreground mb-2">Leadership Experience</h4>
+                  <h4 className="font-semibold text-foreground mb-2">{t('about.leadershipExperience')}</h4>
                   <p className="text-muted-foreground text-sm">
-                    Led 5 students in agile project environments, demonstrating team coordination and project management skills
+                    {t('about.leadershipDesc')}
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2">

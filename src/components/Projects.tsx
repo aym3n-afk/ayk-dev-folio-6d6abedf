@@ -1,7 +1,10 @@
 import { ExternalLink, Code, Zap, Brain, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Projects = () => {
+  const { t } = useLanguage();
+  
   const projects = [
     {
       title: 'KI-basierte Testfallautomatisierung',
@@ -66,11 +69,10 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Featured Projects
+            {t('projects.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A showcase of my engineering projects spanning embedded systems, AI/ML, 
-            and advanced automotive technologies
+            {t('projects.description')}
           </p>
         </div>
 
@@ -110,7 +112,7 @@ const Projects = () => {
                 </p>
 
                 <div className="mb-6">
-                  <h4 className="font-semibold text-foreground mb-3">Key Results & Impact:</h4>
+                  <h4 className="font-semibold text-foreground mb-3">{t('projects.keyResults')}</h4>
                   <ul className="space-y-2">
                     {project.impact.map((item, impactIndex) => (
                       <li key={impactIndex} className="flex items-start space-x-2 text-sm">
@@ -137,18 +139,18 @@ const Projects = () => {
         <div className="text-center mt-16">
           <div className="max-w-2xl mx-auto p-8 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border border-border">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Interested in My Work?
+              {t('projects.interestedTitle')}
             </h3>
             <p className="text-muted-foreground mb-6">
-              I'm always excited to discuss new engineering challenges and collaboration opportunities.
+              {t('projects.interestedDesc')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <Button size="lg" className="btn-hero" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                Get In Touch
+                {t('projects.getInTouch')}
               </Button>
               <Button variant="outline" size="lg" className="btn-outline flex items-center space-x-2">
                 <ExternalLink className="h-4 w-4" />
-                <span>View All Projects</span>
+                <span>{t('projects.viewAll')}</span>
               </Button>
             </div>
           </div>
