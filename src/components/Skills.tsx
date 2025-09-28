@@ -1,8 +1,11 @@
 import { Code, Cpu, Zap, Brain, Settings, GitBranch } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 
 const Skills = () => {
   const { t, language } = useLanguage();
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { elementRef: skillsRef, visibleItems } = useStaggeredAnimation(6, 100);
   
   const skillCategories = language === 'de' ? [
     {
@@ -90,7 +93,10 @@ const Skills = () => {
     <section id="skills" className="section-padding">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 
+            ref={titleRef}
+            className={`text-3xl lg:text-4xl font-bold text-foreground mb-4 scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+          >
             {t('skills.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -99,11 +105,11 @@ const Skills = () => {
         </div>
 
         {/* Skill Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <div key={index} className="card-project group">
+              <div key={index} className={`card-project group hover:shadow-lg hover:-translate-y-1 transition-all duration-300 stagger-item ${visibleItems.includes(index) ? 'visible' : ''}`}>
                 <div className="flex items-center space-x-3 mb-6">
                   <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center ${category.color}`}>
                     <IconComponent className="h-5 w-5" />

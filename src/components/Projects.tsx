@@ -1,9 +1,12 @@
 import { ExternalLink, Code, Zap, Brain, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 
 const Projects = () => {
   const { t } = useLanguage();
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { elementRef: projectsRef, visibleItems } = useStaggeredAnimation(4, 200);
   
   const projects = [
     {
@@ -65,10 +68,13 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="section-padding bg-muted/30">
+    <section id="projects" className="section-padding bg-card/30 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 
+            ref={titleRef}
+            className={`text-3xl lg:text-4xl font-bold text-foreground mb-4 scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+          >
             {t('projects.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -76,11 +82,11 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div ref={projectsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             return (
-              <div key={index} className={`card-project bg-gradient-to-br ${project.color}`}>
+              <div key={index} className={`card-project bg-gradient-to-br ${project.color} hover:shadow-lg hover:-translate-y-1 transition-all duration-300 stagger-item ${visibleItems.includes(index) ? 'visible' : ''}`}>
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center space-x-3">
                     <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">

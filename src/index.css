@@ -173,6 +173,48 @@
     background: var(--gradient-hero);
   }
   
+  /* Scroll Animations */
+  .scroll-fade-in {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  
+  .scroll-fade-in.visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .scroll-slide-left {
+    @apply opacity-0 -translate-x-8 transition-all duration-700 ease-out;
+  }
+  
+  .scroll-slide-left.visible {
+    @apply opacity-100 translate-x-0;
+  }
+  
+  .scroll-slide-right {
+    @apply opacity-0 translate-x-8 transition-all duration-700 ease-out;
+  }
+  
+  .scroll-slide-right.visible {
+    @apply opacity-100 translate-x-0;
+  }
+  
+  .scroll-scale-in {
+    @apply opacity-0 scale-95 transition-all duration-700 ease-out;
+  }
+  
+  .scroll-scale-in.visible {
+    @apply opacity-100 scale-100;
+  }
+  
+  /* Stagger Animation */
+  .stagger-item {
+    @apply opacity-0 translate-y-4 transition-all duration-500 ease-out;
+  }
+  
+  .stagger-item.visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
   /* Tech Pill Components */
   .tech-pill {
     @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary text-secondary-foreground transition-colors hover:bg-secondary-hover;
@@ -229,5 +271,35 @@
   
   .container-padding {
     @apply px-6 sm:px-8 lg:px-12;
+  }
+}
+
+@layer utilities {
+  /* Smooth scrolling for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Disable smooth scrolling for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .scroll-fade-in,
+    .scroll-slide-left,
+    .scroll-slide-right, 
+    .scroll-scale-in,
+    .stagger-item {
+      animation: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
   }
 }

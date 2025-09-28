@@ -1,8 +1,12 @@
 import { Award, Globe, Users, Zap } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 
 const About = () => {
   const { t, language } = useLanguage();
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { elementRef: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  const { elementRef: skillsRef, visibleItems } = useStaggeredAnimation(6, 150);
   
   const languages = [
     { name: 'Deutsch', level: 'C1' },
@@ -30,18 +34,24 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding">
+    <section id="about" className="section-padding bg-card/30 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 
+            ref={titleRef}
+            className={`text-3xl lg:text-4xl font-bold text-foreground mb-4 scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+          >
             {t('about.title')}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p 
+            ref={contentRef}
+            className={`text-lg text-muted-foreground max-w-3xl mx-auto scroll-fade-in ${contentVisible ? 'visible' : ''}`}
+          >
             {t('about.description')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div ref={skillsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Areas of Focus */}
           <div className="space-y-8">
             <div>
@@ -50,19 +60,19 @@ const About = () => {
                 <span>{t('about.areasOfFocus')}</span>
               </h3>
               <div className="space-y-4">
-                <div className="card-interactive">
+                <div className={`card-interactive hover:shadow-lg hover:-translate-y-1 transition-all duration-300 stagger-item ${visibleItems.includes(0) ? 'visible' : ''}`}>
                   <h4 className="font-semibold text-foreground mb-2">{t('about.embeddedSystems')}</h4>
                   <p className="text-muted-foreground text-sm">
                     {t('about.embeddedDesc')}
                   </p>
                 </div>
-                <div className="card-interactive">
+                <div className={`card-interactive hover:shadow-lg hover:-translate-y-1 transition-all duration-300 stagger-item ${visibleItems.includes(1) ? 'visible' : ''}`}>
                   <h4 className="font-semibold text-foreground mb-2">{t('about.driveTechnology')}</h4>
                   <p className="text-muted-foreground text-sm">
                     {t('about.driveDesc')}
                   </p>
                 </div>
-                <div className="card-interactive">
+                <div className={`card-interactive hover:shadow-lg hover:-translate-y-1 transition-all duration-300 stagger-item ${visibleItems.includes(2) ? 'visible' : ''}`}>
                   <h4 className="font-semibold text-foreground mb-2">{t('about.llmTesting')}</h4>
                   <p className="text-muted-foreground text-sm">
                     {t('about.llmDesc')}

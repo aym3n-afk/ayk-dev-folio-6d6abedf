@@ -1,8 +1,11 @@
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
 
 const Experience = () => {
   const { t, language } = useLanguage();
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { elementRef: timelineRef, visibleItems } = useStaggeredAnimation(5, 200);
   
   const experiences = language === 'de' ? [
     {
@@ -154,10 +157,13 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="section-padding bg-muted/30">
+    <section id="experience" className="section-padding">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 
+            ref={titleRef}
+            className={`text-3xl lg:text-4xl font-bold text-foreground mb-4 scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+          >
             {t('experience.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -169,13 +175,13 @@ const Experience = () => {
           {/* Timeline line */}
           <div className="timeline-line"></div>
           
-          <div className="space-y-12">
+          <div ref={timelineRef} className="space-y-12">
             {experiences.map((exp, index) => (
-              <div key={index} className="relative pl-12">
+              <div key={index} className={`relative pl-12 stagger-item ${visibleItems.includes(index) ? 'visible' : ''}`}>
                 {/* Timeline dot */}
                 <div className={`timeline-dot ${exp.current ? 'bg-primary' : 'bg-muted-foreground'}`}></div>
                 
-                <div className="card-project">
+                <div className="card-project hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-foreground mb-1">
