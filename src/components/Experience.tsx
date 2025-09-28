@@ -4,8 +4,15 @@ import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnim
 
 const Experience = () => {
   const { t, language } = useLanguage();
-  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { elementRef: timelineRef, visibleItems } = useStaggeredAnimation(5, 200);
+  
+  // Initialize scroll animation hooks
+  const titleAnimation = useScrollAnimation();
+  const timelineAnimation = useStaggeredAnimation(5, 200);
+  
+  const titleRef = titleAnimation.elementRef;
+  const titleVisible = titleAnimation.isVisible;
+  const timelineRef = timelineAnimation.elementRef;
+  const visibleItems = timelineAnimation.visibleItems;
   
   const experiences = language === 'de' ? [
     {
