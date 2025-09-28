@@ -226,11 +226,11 @@
   
   /* Card Variants */
   .card-interactive {
-    @apply bg-card border border-border rounded-xl p-6 transition-all duration-200 hover:bg-card-hover hover:shadow-md cursor-pointer;
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 transition-all duration-300 hover:bg-card-hover hover:shadow-lg hover:-translate-y-1 cursor-pointer;
   }
   
   .card-project {
-    @apply bg-card border border-border rounded-xl p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
   }
   
   /* Timeline Components */
@@ -278,6 +278,18 @@
   /* Smooth scrolling for the entire page */
   html {
     scroll-behavior: smooth;
+  }
+  
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(1deg); }
+    66% { transform: translateY(5px) rotate(-1deg); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
   }
   
   /* Disable smooth scrolling for users who prefer reduced motion */

@@ -45,9 +45,9 @@ const Index = () => {
     <>
       <BackgroundVideo />
       <ScrollProgress />
-      <div className={`relative z-10 min-h-screen transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`relative z-10 min-h-screen transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <Header />
-        <main>
+        <main className="space-y-0">
           <Hero />
           <About />
           <Experience />
