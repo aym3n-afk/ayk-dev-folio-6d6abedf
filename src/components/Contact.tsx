@@ -56,7 +56,7 @@ const Contact = () => {
       icon: MapPin,
       label: 'Location',
       value: 'Herne, Germany',
-      href: 'https://maps.google.com/?q=Aachen,Germany'
+      href: 'https://www.google.com/maps?q=Herne,Germany'
     }
   ];
 
