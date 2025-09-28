@@ -55,7 +55,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Aachen, Germany',
+      value: 'Herne, Germany',
       href: 'https://maps.google.com/?q=Aachen,Germany'
     }
   ];
@@ -68,7 +68,7 @@ const Contact = () => {
     },
     {
       name: 'GitLab',
-      url: 'https://git.fh-aachen.de/ak3198s/stm32_sub',
+      url: 'https://git.fh-aachen.de/ak3198s/',
       description: 'Code repositories and technical projects'
     }
   ];
