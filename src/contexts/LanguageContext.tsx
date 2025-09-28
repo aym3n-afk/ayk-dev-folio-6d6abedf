@@ -25,8 +25,10 @@ const translations = {
 
     // Hero
     'hero.title': 'Entwicklungsingenieur Hardware & Software',
-    'hero.description': 'Technisch versierter Ingenieur mit Fokus auf Embedded-Systeme, Antriebstechnik und industrielle Automatisierung; erfahren in modellbasierter Entwicklung, hardwarenaher Programmierung und Systemintegration von Prototyp bis zur Serienreife.',
-    'hero.currentRole': 'Project Engineer bei EMZ Elektromaschinenzentrale GmbH',
+'hero.description': `-Kombination aus klassischer Elektrotechnik (HV-Motoren, Prüfstand, Embedded Systems) und innovativer KI-Anwendung (LLM-basierte Testautomatisierung)
+-Projekterfahrung von Simulation über Auslegung, Inbetriebnahme und Test bis zur Serienreife
+-Starke Schnittstellenkompetenz zwischen Entwicklung, Produktion und Kunde in internationalen Projekten`,
+    'hero.currentRole': 'Projektinginieur bei EMZ Elektromaschinenzentrale GmbH',
     'hero.location': 'Herne, Germany',
     'hero.download': 'Download CV',
     'hero.contact': 'Kontakt',
@@ -126,7 +128,9 @@ const translations = {
 
     // Hero
     'hero.title': 'Hardware & Software Development Engineer',
-    'hero.description': 'Technically adept engineer focused on embedded systems, drive technology, and industrial automation; experienced in model-based development, hardware-near programming, and system integration from prototype to series readiness.',
+    'hero.description': `Combination of classic electrical engineering (HV motors, test bench, embedded systems) and innovative AI application (LLM-based test automation)
+Project experience ranging from simulation to design, commissioning, and testing through to series production readiness
+Strong interface expertise between development, production, and customers in international projects`,
     'hero.currentRole': 'Project Engineer at EMZ Elektromaschinenzentrale GmbH',
     'hero.location': 'Herne, Germany',
     'hero.download': 'Download CV',
