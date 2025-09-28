@@ -25,11 +25,11 @@ const translations = {
 
     // Hero
     'hero.title': 'Entwicklungsingenieur Hardware & Software',
-'hero.description': `-Kombination aus klassischer Elektrotechnik (HV-Motoren, Prüfstand, Embedded Systems) und innovativer KI-Anwendung (LLM-basierte Testautomatisierung)
--Projekterfahrung von Simulation über Auslegung, Inbetriebnahme und Test bis zur Serienreife
+'hero.description': `-Kombination aus klassischer Elektrotechnik (HV-Motoren, Prüfstand, Embedded Systems) und innovativer KI-Anwendung (LLM-basierte Testautomatisierung)\n
+-Projekterfahrung von Simulation über Auslegung, Inbetriebnahme und Test bis zur Serienreife\n
 -Starke Schnittstellenkompetenz zwischen Entwicklung, Produktion und Kunde in internationalen Projekten`,
     'hero.currentRole': 'Projektinginieur bei EMZ Elektromaschinenzentrale GmbH',
-    'hero.location': 'Herne, Germany',
+    'hero.location': 'Recklinghausen, Germany',
     'hero.download': 'Download CV',
     'hero.contact': 'Kontakt',
     'hero.yearsExperience': 'Jahre Erfahrung',
@@ -128,11 +128,11 @@ const translations = {
 
     // Hero
     'hero.title': 'Hardware & Software Development Engineer',
-    'hero.description': `Combination of classic electrical engineering (HV motors, test bench, embedded systems) and innovative AI application (LLM-based test automation)
-Project experience ranging from simulation to design, commissioning, and testing through to series production readiness
-Strong interface expertise between development, production, and customers in international projects`,
+    'hero.description': `-Combination of classic electrical engineering (HV motors, test bench, embedded systems) and innovative AI application (LLM-based test automation)\n
+-Project experience ranging from simulation to design, commissioning, and testing through to series production readiness\n
+-Strong interface expertise between development, production, and customers in international projects`,
     'hero.currentRole': 'Project Engineer at EMZ Elektromaschinenzentrale GmbH',
-    'hero.location': 'Herne, Germany',
+    'hero.location': 'Recklinghausen, Germany',
     'hero.download': 'Download CV',
     'hero.contact': 'Contact',
     'hero.yearsExperience': 'Years Experience',

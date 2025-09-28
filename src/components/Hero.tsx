@@ -41,11 +41,11 @@ const Hero = () => {
               </div>
               {/* Floating Stats */}
               <div className="absolute -top-6 -left-6 stat-card">
-                <div className="stat-number">5+</div>
+                <div className="stat-number">3+</div>
                 <div className="stat-label">{t('hero.yearsExperience')}</div>
               </div>
               <div className="absolute -bottom-6 -right-6 stat-card">
-                <div className="stat-number">20+</div>
+                <div className="stat-number">10+</div>
                 <div className="stat-label">{t('hero.projectsCompleted')}</div>
               </div>
             </div>

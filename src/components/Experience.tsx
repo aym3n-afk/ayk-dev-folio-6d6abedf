@@ -19,7 +19,7 @@ const Experience = () => {
       title: 'Project Engineer',
       company: 'EMZ Elektromaschinenzentrale GmbH',
       period: 'Present',
-      location: 'Aachen, Germany',
+      location: 'Recklinghausen, Germany',
       description: 'Drive technology for industrial high-voltage motors; engineering & project execution including sizing, commissioning, testing, and coordination with customer and production interfaces.',
       technologies: ['High-voltage Motors', 'Drive Technology', 'Project Management', 'Customer Interface'],
       current: true
